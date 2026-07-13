@@ -1,0 +1,202 @@
+/* ============================================================
+   ETHEREAL BOTANIST — Design Tokens
+   Colors & Type foundations
+   Concept: minimalist, sophisticated, organic botanical
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Alex+Brush&display=swap');
+
+:root {
+  /* ---------- BRAND PALETTE (raw) ---------- */
+  --eb-cream:        #F2EEE5; /* Crema base / Fondo */
+  --eb-warm-gray:    #BBB2A9; /* Gris cálido / acentos suaves */
+  --eb-earth:        #A08B78; /* Tierra / texto secundario */
+  --eb-sage:         #74846A; /* Verde Sabio / primario y marca */
+  --eb-forest:       #4A4F3B; /* Verde bosque profundo / contraste */
+  --eb-ink:          #28281C; /* Casi negro / texto principal */
+
+  /* Soft tints derived from the palette (for washes, fills, borders) */
+  --eb-cream-50:     #F8F6F0; /* lifted cream for cards on cream */
+  --eb-cream-deep:   #E8E2D5; /* recessed cream / hairline fills */
+  --eb-sage-tint:    #E4E7DD; /* faint sage wash */
+  --eb-sage-soft:    #C7CFBC; /* sage at low intensity */
+
+  /* ---------- SEMANTIC COLOR ROLES ---------- */
+  --bg:              var(--eb-cream);     /* page background */
+  --bg-raised:       var(--eb-cream-50);  /* cards, panels */
+  --bg-sunken:       var(--eb-cream-deep);/* wells, recessed fields */
+  --bg-invert:       var(--eb-forest);    /* dark sections */
+
+  --fg:              var(--eb-ink);       /* primary text */
+  --fg-secondary:    var(--eb-earth);     /* secondary text */
+  --fg-muted:        var(--eb-warm-gray); /* captions, meta, placeholders */
+  --fg-on-dark:      var(--eb-cream);     /* text on forest/sage */
+
+  --brand:           var(--eb-sage);      /* primary brand / actions */
+  --brand-strong:    var(--eb-forest);    /* hover / deep contrast */
+  --accent:          var(--eb-earth);     /* warm accents, links */
+
+  --line:            rgba(40,40,28,0.12); /* hairline borders */
+  --line-strong:     rgba(40,40,28,0.22); /* defined borders */
+  --line-on-dark:    rgba(242,238,229,0.22);
+
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-serif:  'Noto Serif', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-sans:   'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ---------- TYPE SCALE (fluid-ish, rem based) ---------- */
+  --text-display:  clamp(2.75rem, 6vw, 4.5rem);  /* hero names */
+  --text-h1:       clamp(2rem, 4vw, 3rem);
+  --text-h2:       clamp(1.625rem, 3vw, 2.25rem);
+  --text-h3:       1.375rem;
+  --text-h4:       1.125rem;
+  --text-body-lg:  1.125rem;
+  --text-body:     1rem;
+  --text-sm:       0.875rem;
+  --text-xs:       0.75rem;
+
+  /* tracking */
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.08em;
+  --tracking-wider:  0.18em;  /* eyebrows, labels */
+
+  /* line heights */
+  --leading-tight:  1.1;
+  --leading-snug:   1.3;
+  --leading-normal: 1.6;
+
+  /* ---------- SPACING SCALE (8pt base) ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* ---------- RADII (round full motif) ---------- */
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   24px;
+  --radius-xl:   36px;
+  --radius-full: 999px;
+
+  /* ---------- SHADOWS (soft, diffuse, warm) ---------- */
+  --shadow-xs:  0 1px 2px rgba(40,40,28,0.05);
+  --shadow-sm:  0 2px 8px rgba(40,40,28,0.06);
+  --shadow-md:  0 8px 24px rgba(40,40,28,0.08);
+  --shadow-lg:  0 18px 48px rgba(40,40,28,0.12);
+  --shadow-glow: 0 8px 40px rgba(116,132,106,0.18); /* sage halo */
+
+  /* ---------- BLUR / GLASS ---------- */
+  --blur:        16px;
+  --glass-bg:    rgba(248,246,240,0.66);
+  --glass-bg-dark: rgba(40,40,28,0.42);
+
+  /* ---------- MOTION ---------- */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft:  cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:   180ms;
+  --dur:        320ms;
+  --dur-slow:   600ms;
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES
+   ============================================================ */
+
+.eb-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.eb-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-display);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+}
+
+h1, .eb-h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--text-h1);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+}
+
+h2, .eb-h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--text-h2);
+  line-height: var(--leading-snug);
+  color: var(--fg);
+}
+
+h3, .eb-h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--text-h3);
+  line-height: var(--leading-snug);
+  color: var(--fg);
+}
+
+h4, .eb-h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-h4);
+  line-height: var(--leading-snug);
+  color: var(--fg);
+}
+
+p, .eb-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  color: var(--fg-secondary);
+}
+
+.eb-body-lg {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-normal);
+  color: var(--fg-secondary);
+}
+
+.eb-lead {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-normal);
+  color: var(--fg-secondary);
+}
+
+.eb-caption {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+
+.eb-label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+}
