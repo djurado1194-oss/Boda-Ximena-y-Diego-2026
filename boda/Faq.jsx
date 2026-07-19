@@ -8,10 +8,15 @@ function FaqItem({ item, open, onToggle }) {
         <Icon name="chevron-down" className="faq-chev" />
       </button>
       <div className="faq-a-wrap">
-        <p className="faq-a">{item.a}</p>
+        <p className="faq-a">{renderFaqAnswer(item.a)}</p>
       </div>
     </div>
   );
+}
+
+function renderFaqAnswer(text) {
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  return parts.map((part, i) => (i % 2 === 1 ? <b key={i}>{part}</b> : part));
 }
 
 function Faq() {

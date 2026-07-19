@@ -73,7 +73,7 @@ function Rsvp() {
                   <a className="btn btn-primary" href={googleCalUrl()} target="_blank" rel="noreferrer">
                     <Icon name="calendar-plus" /> {t.rsvp.gcal}
                   </a>
-                  <button className="btn btn-ghost" onClick={downloadICS}>
+                  <button className="btn btn-ghost btn-ghost-ics" type="button" style={{ color: "var(--bg-sunken)", border: "1px solid var(--bg)" }} onClick={downloadICS}>
                     <Icon name="download" /> {t.rsvp.ics}
                   </button>
                 </div>
@@ -113,10 +113,6 @@ function Rsvp() {
             {form.attending === "yes" && (
               <React.Fragment>
                 <div className="field">
-                  <label>{t.rsvp.alergias}</label>
-                  <input className="input" value={form.allergiesOther}
-                    onChange={e => set("allergiesOther", e.target.value)}
-                    placeholder={t.rsvp.alergiasPh} />
                 </div>
 
                 <div className="field">
@@ -138,7 +134,7 @@ function Rsvp() {
             <button type="submit" className="btn btn-primary rsvp-submit">
               <Icon name="send" /> {t.rsvp.enviar}
             </button>
-            <p className="rsvp-note">{t.rsvp.nota}</p>
+            <p className="rsvp-note">{t.rsvp.notaPre} <b>{t.rsvp.notaBold}</b>{t.rsvp.notaPost}</p>
           </form>
         )}
       </div>

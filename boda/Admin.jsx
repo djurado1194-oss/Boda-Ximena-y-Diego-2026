@@ -173,7 +173,7 @@ function Footer({ onReplayIntro }) {
   const { t } = useLang();
   return (
     <footer className="footer">
-      <div className="f-mark">Ximena &amp; Diego</div>
+      <div className="f-mark"><span style={{ fontFamily: "Playfair Display" }}>Ximena &amp; Diego</span></div>
       <img className="f-sprig" src="assets/sprig.svg" alt="" />
       <div className="f-meta">{t.footer.fecha}<br />{t.footer.esperamos}</div>
       {onReplayIntro && (

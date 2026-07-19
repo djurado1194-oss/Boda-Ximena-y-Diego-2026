@@ -72,6 +72,7 @@ img { display: block; max-width: 100%; }
 .btn-primary:hover { background: var(--brand-strong); box-shadow: var(--shadow-md); }
 .btn-ghost { background: transparent; color: var(--brand-strong); border-color: var(--line-strong); }
 .btn-ghost:hover { background: var(--eb-sage-tint); border-color: transparent; }
+.btn-ghost-ics:hover { color: var(--brand-strong) !important; }
 .btn-soft { background: var(--eb-sage-tint); color: var(--brand-strong); }
 .btn-soft:hover { background: var(--eb-sage-soft); }
 .btn .ic { width: 18px; height: 18px; }
@@ -119,6 +120,17 @@ img { display: block; max-width: 100%; }
 .lang-switch span.is-on { color: var(--brand-strong); }
 .lang-switch .lang-sep { color: var(--line-strong); }
 .nav-sheet .lang-switch.sheet { margin-top: 8px; align-self: flex-start; }
+.lang-switch.on-intro {
+  border-color: var(--line-on-dark); color: var(--eb-cream);
+  background: rgba(20,20,18,0.35); backdrop-filter: blur(4px);
+}
+.lang-switch.on-intro span.is-on { color: var(--eb-cream); font-weight: 600; }
+.lang-switch.on-intro .lang-sep { color: rgba(242,238,229,0.4); }
+.intro-lang-slot {
+  position: relative; z-index: 6; margin-top: 18px;
+  opacity: 1; transition: opacity 0.4s var(--ease-out);
+}
+.intro.phase-opening .intro-lang-slot, .intro.phase-names .intro-lang-slot, .intro.phase-gone .intro-lang-slot { opacity: 0; pointer-events: none; }
 
 @media (max-width: 760px) {
   .nav-links.desktop { display: none; }

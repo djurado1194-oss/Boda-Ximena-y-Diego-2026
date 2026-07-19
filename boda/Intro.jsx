@@ -58,7 +58,7 @@ function Intro({ onDone }) {
     : undefined;
 
   return (
-    <div className={cls} onClick={open} role="button" aria-label={t.intro.abrir}>
+    <div className={cls} onClick={open} role="button" aria-label={t.intro.abrir} onPointerDownCapture={(e) => { if (e.target.closest(".lang-switch")) e.stopPropagation(); }}>
       <img className="intro-bg" src="assets/intro-bg.png" alt="" />
       <div className="intro-scrim" aria-hidden="true"></div>
 
@@ -87,6 +87,10 @@ function Intro({ onDone }) {
       </div>
 
       <p className="intro-hint"><Icon name="hand" /> {dragging ? t.intro.deslizando : t.intro.toca}</p>
+      <span className="intro-lang-slot" onClick={(e) => e.stopPropagation()} onPointerDown={(e) => e.stopPropagation()}>
+        <LangSwitch className="on-intro" />
+      </span>
+
 
       {/* Panel cinemático con los nombres, sobre la foto */}
       <div className="cinema" aria-hidden={phase !== "names" && phase !== "gone"}>

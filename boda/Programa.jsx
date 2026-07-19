@@ -32,7 +32,7 @@ function Programa() {
 
 /* Lugares con mapas embebidos */
 
-function MapCard({ eyebrow, title, address, lat, lng, slotId }) {
+function MapCard({ eyebrow, eyebrowStyle, title, address, lat, lng, slotId }) {
   const { t } = useLang();
   const q = `${lat},${lng}`;
   const embed = `https://maps.google.com/maps?q=${q}&z=16&output=embed`;
@@ -56,7 +56,7 @@ function MapCard({ eyebrow, title, address, lat, lng, slotId }) {
         ></iframe>
       </div>
       <div className="detail-body">
-        <span className="eyebrow detail-eyebrow">{eyebrow}</span>
+        <span className="eyebrow detail-eyebrow" style={eyebrowStyle}>{eyebrow}</span>
         <h3 className="detail-title">{title}</h3>
         <div className="detail-row"><Icon name="map-pin" /><span>{address}</span></div>
         <div className="detail-actions">
@@ -84,6 +84,7 @@ function Lugares() {
           <div className="reveal" style={{ alignSelf: "flex-start" }}>
             <MapCard
               eyebrow={t.lugares.ceremonia}
+              eyebrowStyle={{ fontWeight: 600, fontSize: 12 }}
               title={t.lugares.iglesiaNombre}
               address={t.lugares.iglesiaDir}
               lat="14.5453503" lng="-90.7297489"
@@ -92,6 +93,7 @@ function Lugares() {
           <div className="reveal">
             <MapCard
               eyebrow={t.lugares.recepcion}
+              eyebrowStyle={{ fontSize: 12, fontWeight: 600 }}
               title={t.lugares.hotelNombre}
               address={t.lugares.hotelDir}
               lat="14.5280492" lng="-90.7581602"

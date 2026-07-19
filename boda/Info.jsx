@@ -10,13 +10,29 @@ function DressCode() {
         </div>
         <div className="dress-card reveal">
           <div className="dress-illustration" aria-hidden="true"></div>
-          <p className="eb-body-lg" style={{ margin: 0 }}>
-            {t.dress.texto}
-          </p>
+          <div className="dress-columns">
+            <div className="dress-col">
+              <h3 className="dress-col-title">{t.dress.hombresTitle}</h3>
+              <p className="dress-col-sub">{t.dress.hombresSub}<br /></p>
+            </div>
+            <div className="dress-col-divider" aria-hidden="true"></div>
+            <div className="dress-col">
+              <h3 className="dress-col-title">{t.dress.mujeresTitle}</h3>
+              <p className="dress-col-sub">{t.dress.mujeresSub}<br /></p>
+            </div>
+          </div>
           <div style={{ marginTop: 20 }}>
-            <span className="dress-note"><Icon name="info" /> {t.dress.nota}</span>
+            <span className="dress-note" style={{ width: "100%" }}>
+              <Icon name="info" />
+              <span><strong>{t.dress.notaMujeresLabel}</strong> {t.dress.notaMujeres}</span>
+            </span>
           </div>
           <div className="palette-caption"></div>
+          <strong style={{ fontSize: "13.5px" }}>{t.dress.notaTitulo}</strong>
+          <span style={{ fontSize: "13.5px" }}>
+            <br />
+            {t.dress.notaAireLibre} <b><u>{t.dress.notaAireLibreBold}</u></b>
+          </span>
         </div>
       </div>
     </section>
@@ -157,7 +173,7 @@ function Regalos() {
     <section className="section regalos" id="regalos">
       <div className="wrap">
         <div className="reveal">
-          <SectionHead eyebrow={t.regalos.eyebrow} title={t.regalos.title} />
+          <SectionHead title={t.regalos.title} />
         </div>
         <p className="eb-lead reveal" style={{ textAlign: "center", maxWidth: 560, margin: "var(--space-5) auto 0" }}>
           {t.regalos.lead}
@@ -167,9 +183,6 @@ function Regalos() {
             <div className="regalo-card reveal" key={ai}>
               <div className="info-icon"><Icon name="landmark" /></div>
               <h3>{acc.title}</h3>
-              <p className="eb-body" style={{ margin: "0 0 12px" }}>
-                {acc.note}
-              </p>
               <div>
                 {acc.rows.map(([k, v]) => {
                   const id = ai + "-" + k;

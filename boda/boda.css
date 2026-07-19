@@ -205,10 +205,28 @@
   filter: drop-shadow(0 8px 20px rgba(0,0,0,0.28));
 }
 .dress-card p { color: rgba(242,238,229,0.82); }
+.dress-columns {
+  display: flex; align-items: center; justify-content: center; gap: 32px;
+  margin-top: 28px; flex-wrap: wrap;
+}
+.dress-col { flex: 1; min-width: 160px; text-align: center; }
+.dress-col-title {
+  color: var(--eb-cream); font-size: 1.15rem; margin: 0 0 6px;
+}
+.dress-col-sub { color: rgba(242,238,229,0.82); margin: 0; }
+.dress-col-divider {
+  width: 1px; align-self: stretch; min-height: 48px;
+  background: var(--line-on-dark);
+}
+@media (max-width: 560px) {
+  .dress-columns { flex-direction: column; gap: 20px; }
+  .dress-col-divider { width: 60%; height: 1px; min-height: 0; align-self: center; }
+}
 .dress-note {
-  display: inline-flex; align-items: center; gap: 9px; margin: 4px auto 0;
+  display: inline-flex; align-items: flex-start; gap: 9px; margin: 4px auto 0;
   font-size: 13.5px; color: var(--eb-cream); background: rgba(248,246,240,0.08);
-  border: 1px solid var(--line-on-dark); padding: 9px 18px; border-radius: var(--radius-full);
+  border: 1px solid var(--line-on-dark); padding: 12px 18px; border-radius: var(--radius-lg);
+  text-align: left; max-width: 480px;
 }
 .dress-note .ic { width: 16px; height: 16px; color: var(--eb-sage-soft); }
 .dress-photo {
@@ -228,7 +246,7 @@
 .palette-caption { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(242,238,229,0.6); margin-top: 22px; font-weight: 600; }
 
 /* ---------- hoteles ---------- */
-.hoteles { background: var(--bg); }
+.hoteles { background: var(--bg-sunken); }
 .hotel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: var(--space-7); }
 @media (max-width: 900px) { .hotel-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) {
@@ -288,7 +306,7 @@ a.hotel-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); 
 .hotel-card .btn { margin-top: auto; justify-content: center; }
 
 /* ---------- regalos ---------- */
-.regalos { background: var(--bg-sunken); }
+.regalos { background: var(--bg); }
 .regalo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: var(--space-7); }
 @media (max-width: 760px) { .regalo-grid { grid-template-columns: 1fr; } }
 .regalo-card { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); padding: 30px; }

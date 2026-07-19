@@ -62,8 +62,8 @@ function Hero({ showCountdown = true }) {
         </h1>
         <img className="hero-sprig-dark" src="assets/sprig.svg" alt="" />
         <p className="hero-meta-dark">
-          <span style={{ fontSize: "32px" }}>{t.hero.fecha}</span>
-          <span style={{ fontSize: "24px" }}><br />{t.hero.lugar}</span>
+          <span style={{ fontSize: "24px" }}>{t.hero.fecha}</span>
+          <span style={{ fontSize: "16px" }}><br />{t.hero.lugar}</span>
         </p>
         {showCountdown && <Countdown />}
       </div>
