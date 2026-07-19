@@ -1,6 +1,7 @@
-/* RSVP — formulario con todos los campos del brief, guardado en localStorage */
+/* RSVP — formulario con todos los campos del brief, guardado en localStorage y en Google Sheets */
 
 const RSVP_KEY = "boda_xd_rsvps";
+const RSVP_SHEET_URL = "https://script.google.com/macros/s/AKfycbxW5H8_m4xjchxA5riCbtMPWHrglxT_whB4B6aWo9R4BPJccRfWOMNtBypHrDB3DUG9/exec";
 
 function loadRsvps() {
   try { return JSON.parse(localStorage.getItem(RSVP_KEY) || "[]"); } catch (e) { return []; }
@@ -9,6 +10,15 @@ function saveRsvp(record) {
   const all = loadRsvps();
   all.push(record);
   localStorage.setItem(RSVP_KEY, JSON.stringify(all));
+}
+function sendRsvpToSheet(record) {
+  /* no-cors: Apps Script no responde con headers CORS; el envío es "fire and forget" */
+  return fetch(RSVP_SHEET_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(record),
+  }).catch(() => {});
 }
 
 const MAX_GUESTS = 10;
@@ -41,11 +51,13 @@ function Rsvp() {
   const submit = (ev) => {
     ev.preventDefault();
     if (!validate()) return;
-    saveRsvp({
+    const record = {
       ...form,
       allergiesOther: form.allergiesOther.trim(),
       ts: new Date().toISOString(),
-    });
+    };
+    saveRsvp(record);
+    sendRsvpToSheet(record);
     setSent(true);
   };
 
@@ -142,4 +154,4 @@ function Rsvp() {
   );
 }
 
-Object.assign(window, { Rsvp, RSVP_KEY, loadRsvps, saveRsvp });
+Object.assign(window, { Rsvp, RSVP_KEY, loadRsvps, saveRsvp, sendRsvpToSheet });
