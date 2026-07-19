@@ -152,12 +152,10 @@ const DICT = {
     programa: {
       eyebrow: "The big day", title: "Schedule",
       items: [
-        ["2:00 pm", "Religious ceremony", "Templo del Calvario"],
-        ["5:00 pm", "Welcome cocktail", "Jardín Cortijo Mestizo"],
-        ["6:00 pm", "Toast & Waltz", "Cortijo Mestizo"],
-        ["7:00 pm", "Family dinner", "Cortijo Mestizo"],
-        ["8:00 pm", "Party & Dembow", "Cortijo Mestizo"],
-        ["11:00 pm", "Last Dance", "Cortijo Mestizo"],
+        ["14:00", "Religious ceremony", "Iglesia El Calvario"],
+        ["17:00", "Welcome cocktail", "Hotel Mestizo Cortijo"],
+        ["18:00", "Reception", "Hotel Mestizo Cortijo"],
+        ["23:00", "Last Dance", "Hotel Mestizo Cortijo"],
       ],
     },
     lugares: {

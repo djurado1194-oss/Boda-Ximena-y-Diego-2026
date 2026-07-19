@@ -541,7 +541,7 @@ table.admin-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
   transition: opacity 0.4s var(--ease-out);
 }
 .intro-hint .ic { width: 16px; height: 16px; }
-.intro.phase-opening .intro-hint, .intro.phase-names .intro-hint, .intro.phase-gone .intro-hint { opacity: 0; }
+.intro.phase-opening .intro-hint, .intro.phase-names .intro-hint, .intro.phase-gone .intro-hint { opacity: 0 !important; animation: none; pointer-events: none; }
 .intro.is-dragging .intro-hint { opacity: .85; }
 @keyframes hintPulse {
   0%, 100% { opacity: .55; transform: translateY(0); }

@@ -2,7 +2,7 @@
 
 function Programa() {
   const { t } = useLang();
-  const icons = ["assets/tl-iglesia.svg", "assets/tl-fotos.svg", "assets/tl-copas.svg", "assets/tl-cena.svg", "assets/tl-pastel.svg", "assets/tl-anillos.svg"];
+  const icons = ["assets/tl-iglesia.svg", "assets/tl-fotos.svg", "assets/tl-pastel.svg", "assets/tl-anillos.svg"];
   const items = t.programa.items.map(([time, title, place], i) => [time, title, place, i === 0, icons[i]]);
   return (
     <section className="section programa" id="programa">
