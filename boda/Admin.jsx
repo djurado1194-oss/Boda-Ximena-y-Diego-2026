@@ -42,16 +42,14 @@ function downloadFile(name, content, type) {
 }
 
 function exportCSV(rows) {
-  const headers = ["Fecha", "Nombre", "Teléfono", "Asiste", "Invitados", "Acompañantes", "Alergias / restricciones", "Canción", "Hospedaje", "Mensaje"];
+  const headers = ["Fecha", "Nombre", "Teléfono", "Asiste", "Invitados", "Canción", "Mensaje"];
   const lines = [headers.map(csvCell).join(",")];
   rows.forEach(r => {
     lines.push([
       fmtDate(r.ts), r.name, r.phone,
       r.attending === "yes" ? "Sí" : "No",
       r.attending === "yes" ? guestCount(r) : "",
-      r.attending === "yes" ? guestNamesText(r) : "",
-      r.attending === "yes" ? allergyText(r) : "",
-      r.song, r.lodging, r.message,
+      r.song, r.message,
     ].map(csvCell).join(","));
   });
   /* BOM para que Excel reconozca UTF-8 */
@@ -120,7 +118,6 @@ function Admin() {
                 <div className="admin-stats">
                   <div className="stat"><div className="n">{rows.length}</div><div className="l">Respuestas</div></div>
                   <div className="stat"><div className="n">{going.length}</div><div className="l">Confirman</div></div>
-                  <div className="stat"><div className="n">{headcount}</div><div className="l">Personas (con +1)</div></div>
                   <div className="stat"><div className="n">{rows.length - going.length}</div><div className="l">No asisten</div></div>
                 </div>
 
@@ -138,7 +135,7 @@ function Admin() {
                       <thead>
                         <tr>
                           <th>Fecha</th><th>Nombre</th><th>Teléfono</th><th>Asiste</th>
-                          <th>Invitados</th><th>Acompañantes</th><th>Alergias / restricciones</th><th>Canción</th><th>Hospedaje</th><th>Mensaje</th>
+                          <th>Invitados</th><th>Canción</th><th>Mensaje</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -149,10 +146,7 @@ function Admin() {
                             <td style={{ whiteSpace: "nowrap" }}>{r.phone}</td>
                             <td>{r.attending === "yes" ? <span className="pill-yes">Sí</span> : <span className="pill-no">No</span>}</td>
                             <td style={{ textAlign: "center" }}>{r.attending === "yes" ? guestCount(r) : "—"}</td>
-                            <td>{r.attending === "yes" ? guestNamesText(r) : "—"}</td>
-                            <td>{r.attending === "yes" ? allergyText(r) : "—"}</td>
                             <td>{r.song || "—"}</td>
-                            <td>{r.lodging || "—"}</td>
                             <td style={{ maxWidth: 220 }}>{r.message || "—"}</td>
                           </tr>
                         ))}

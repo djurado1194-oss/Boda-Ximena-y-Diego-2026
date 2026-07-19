@@ -68,7 +68,7 @@ function Hoteles() {
       name: t.hoteles.hotels[2][0],
       zone: t.hoteles.cerca,
       note: t.hoteles.hotels[2][1],
-      href: "#",
+      href: "https://www.caminorealantigua.com.gt/en/?sjrncid=GA_23528198795&sjrnaid=GA_795815786086&gad_source=1&gad_campaignid=23528198795&gbraid=0AAAABCH4zquaDOBq3kQU1GWI_UOsWMCcm&gclid=Cj0KCQjw6_HSBhCpARIsANvVltYF05gG7JgnjM_nf5GrBkRevcAYe7QY0SHSumgmTz5gJVrIGsxd2C8aAi9DEALw_wcB",
       photo: "assets/hotel-camino-real.jpg",
     },
   ];
