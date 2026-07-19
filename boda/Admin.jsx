@@ -1,6 +1,6 @@
-/* Panel de administrador oculto (contraseña) — confirmaciones + export CSV/JSON */
-
-const ADMIN_PASS = "!BodaXD21112026";
+/* Panel de administrador oculto (contraseña) — confirmaciones + export CSV/JSON.
+   La contraseña se valida en el Apps Script (servidor), nunca en el navegador,
+   así el código público del sitio no contiene el secreto. */
 
 function fmtDate(iso) {
   try {
@@ -64,19 +64,40 @@ function Admin() {
   const [open, setOpen] = React.useState(false);
   const [authed, setAuthed] = React.useState(false);
   const [pass, setPass] = React.useState("");
-  const [err, setErr] = React.useState(false);
+  const [err, setErr] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const [rows, setRows] = React.useState([]);
 
-  const refresh = () => setRows(loadRsvps().slice().reverse());
+  const fetchRows = (password) => {
+    setLoading(true);
+    setErr("");
+    return fetch(RSVP_SHEET_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ action: "list", password }),
+    })
+      .then(r => r.json())
+      .then(data => {
+        if (data.status === "ok") {
+          setRows((data.rows || []).slice().reverse());
+          setAuthed(true);
+        } else {
+          setErr("Contraseña incorrecta.");
+        }
+      })
+      .catch(() => setErr("No se pudo conectar. Intenta de nuevo o revisa la hoja de Google Sheets directamente."))
+      .finally(() => setLoading(false));
+  };
 
-  const openPanel = () => { setOpen(true); refresh(); };
-  const close = () => { setOpen(false); setPass(""); setErr(false); };
+  const openPanel = () => { setOpen(true); };
+  const close = () => { setOpen(false); setPass(""); setErr(""); setAuthed(false); setRows([]); };
 
   const tryLogin = (e) => {
     e.preventDefault();
-    if (pass === ADMIN_PASS) { setAuthed(true); setErr(false); refresh(); }
-    else setErr(true);
+    fetchRows(pass);
   };
+
+  const refresh = () => fetchRows(pass);
 
   const going = rows.filter(r => r.attending === "yes");
   const headcount = going.reduce((n, r) => n + guestCount(r), 0);
@@ -104,13 +125,13 @@ function Admin() {
                   type="password"
                   className="input-light"
                   value={pass}
-                  onChange={e => { setPass(e.target.value); setErr(false); }}
+                  onChange={e => { setPass(e.target.value); setErr(""); }}
                   placeholder="Contraseña"
                   autoFocus
                 />
-                {err && <span className="field-err" style={{ textAlign: "center", color: "#b06a4a" }}>Contraseña incorrecta.</span>}
-                <button type="submit" className="btn btn-primary" style={{ justifyContent: "center" }}>
-                  <Icon name="unlock" /> Entrar
+                {err && <span className="field-err" style={{ textAlign: "center", color: "#b06a4a" }}>{err}</span>}
+                <button type="submit" className="btn btn-primary" style={{ justifyContent: "center" }} disabled={loading}>
+                  <Icon name="unlock" /> {loading ? "Verificando…" : "Entrar"}
                 </button>
               </form>
             ) : (
@@ -122,9 +143,9 @@ function Admin() {
                 </div>
 
                 <div style={{ display: "flex", gap: 10, marginBottom: 18, flexWrap: "wrap" }}>
-                  <button className="btn btn-soft" onClick={() => exportCSV(loadRsvps())}><Icon name="file-spreadsheet" /> Descargar Excel (CSV)</button>
-                  <button className="btn btn-ghost" onClick={() => exportJSON(loadRsvps())}><Icon name="braces" /> Descargar JSON</button>
-                  <button className="btn btn-ghost" onClick={refresh}><Icon name="refresh-cw" /> Actualizar</button>
+                  <button className="btn btn-soft" onClick={() => exportCSV(rows)}><Icon name="file-spreadsheet" /> Descargar Excel (CSV)</button>
+                  <button className="btn btn-ghost" onClick={() => exportJSON(rows)}><Icon name="braces" /> Descargar JSON</button>
+                  <button className="btn btn-ghost" onClick={refresh} disabled={loading}><Icon name="refresh-cw" /> {loading ? "Actualizando…" : "Actualizar"}</button>
                 </div>
 
                 {rows.length === 0 ? (
@@ -179,4 +200,4 @@ function Footer({ onReplayIntro }) {
   );
 }
 
-Object.assign(window, { Admin, Footer, ADMIN_PASS });
+Object.assign(window, { Admin, Footer });
