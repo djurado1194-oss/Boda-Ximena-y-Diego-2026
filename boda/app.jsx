@@ -89,7 +89,6 @@ function App() {
       <Rsvp />
       <Admin />
       <Footer onReplayIntro={replayIntro} />
-      <div className="wc-grain" style={{ position: "absolute", left: "-627px", top: "-7px" }}></div>
 
       <TweaksPanel>
         <TweakSection label="Color de acento" />
