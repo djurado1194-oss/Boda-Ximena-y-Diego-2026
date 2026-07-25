@@ -311,11 +311,12 @@ a.hotel-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); 
 @media (max-width: 760px) { .regalo-grid { grid-template-columns: 1fr; } }
 .regalo-card { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); padding: 30px; }
 .regalo-card h3 { font-family: var(--font-serif); font-size: 23px; margin: 12px 0 8px; }
-.bank-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.bank-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
 .bank-row:last-child { border-bottom: 0; }
+.bank-row > div:first-child { min-width: 0; flex: 1 1 auto; }
 .bank-k { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-muted); font-weight: 600; }
-.bank-v { font-family: var(--font-sans); font-weight: 600; color: var(--fg); font-size: 15px; }
-.copy-btn { background: none; border: none; cursor: pointer; color: var(--brand); display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-sans); font-weight: 600; font-size: 13px; }
+.bank-v { font-family: var(--font-sans); font-weight: 600; color: var(--fg); font-size: 15px; overflow-wrap: anywhere; word-break: break-word; }
+.copy-btn { background: none; border: none; cursor: pointer; color: var(--brand); display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-sans); font-weight: 600; font-size: 13px; flex: none; }
 .copy-btn .ic { width: 15px; height: 15px; }
 
 /* ---------- RSVP extras ---------- */
