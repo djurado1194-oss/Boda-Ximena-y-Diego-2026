@@ -173,6 +173,11 @@ img { display: block; max-width: 100%; }
 .cd-unit { border-radius: var(--radius-lg); padding: 16px 18px; text-align: center; min-width: 74px; }
 .cd-n { font-family: var(--font-serif); font-size: clamp(28px, 6vw, 40px); line-height: 1; color: var(--eb-cream); }
 .cd-u { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(242,238,229,0.78); font-weight: 600; margin-top: 9px; }
+@media (max-width: 420px) {
+  .countdown { gap: 6px; }
+  .cd-unit { min-width: 58px; padding: 12px 8px; }
+  .cd-n { font-size: 24px; }
+}
 .hero-glass { background: var(--glass-bg-dark); backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur)); border: 1px solid var(--line-on-dark); }
 
 .scroll-cue { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); color: rgba(242,238,229,0.7); animation: bob 2.4s var(--ease-soft) infinite; }
