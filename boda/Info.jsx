@@ -39,7 +39,7 @@ function DressCode() {
   );
 }
 
-const WISHLIST_URL = "https://www.airbnb.com.gt/wishlists/1783447198";
+const WISHLIST_URL = "https://www.airbnb.com/l/t415ZJdW";
 
 function Hoteles() {
   const [tab, setTab] = React.useState("hoteles");
