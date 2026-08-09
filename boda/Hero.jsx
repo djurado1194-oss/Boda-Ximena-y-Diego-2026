@@ -1,6 +1,6 @@
-/* Hero acuarela + countdown en vivo hacia el 21/11/2026 14:00 (GT) */
+/* Hero acuarela + countdown en vivo hacia el 21/11/2026 15:00 (GT) */
 
-const WEDDING_TARGET = "2026-11-21T20:00:00Z"; /* 2:00 pm Guatemala (UTC-6) */
+const WEDDING_TARGET = "2026-11-21T21:00:00Z"; /* 3:00 pm Guatemala (UTC-6) */
 
 function useCountdown(targetISO) {
   const [t, setT] = React.useState(() => diff(targetISO));

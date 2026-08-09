@@ -32,7 +32,7 @@ const DICT = {
     programa: {
       eyebrow: "El gran día", title: "Programa",
       items: [
-        ["14:00", "Ceremonia religiosa", "Iglesia El Calvario"],
+        ["15:00", "Ceremonia religiosa", "Iglesia El Calvario"],
         ["17:00", "Cóctel de bienvenida", "Hotel Mestizo Cortijo"],
         ["18:00", "Recepción", "Hotel Mestizo Cortijo"],
         ["23:00", "Last Dance", "Hotel Mestizo Cortijo"],
@@ -40,7 +40,7 @@ const DICT = {
     },
     lugares: {
       eyebrow: "Dónde celebraremos", title: "Ubicaciones",
-      ceremonia: "La ceremonia · 2:00 pm",
+      ceremonia: "La ceremonia · 3:00 pm",
       recepcion: "La recepción · 5:00 pm",
       iglesiaNombre: "Iglesia El Calvario",
       iglesiaDir: "Callejón del Calvario 170, Antigua Guatemala",
@@ -152,7 +152,7 @@ const DICT = {
     programa: {
       eyebrow: "The big day", title: "Schedule",
       items: [
-        ["14:00", "Religious ceremony", "Iglesia El Calvario"],
+        ["15:00", "Religious ceremony", "Iglesia El Calvario"],
         ["17:00", "Welcome cocktail", "Hotel Mestizo Cortijo"],
         ["18:00", "Reception", "Hotel Mestizo Cortijo"],
         ["23:00", "Last Dance", "Hotel Mestizo Cortijo"],
@@ -160,7 +160,7 @@ const DICT = {
     },
     lugares: {
       eyebrow: "Where we'll celebrate", title: "Venues",
-      ceremonia: "The ceremony · 2:00 pm",
+      ceremonia: "The ceremony · 3:00 pm",
       recepcion: "The reception · 5:00 pm",
       iglesiaNombre: "Iglesia El Calvario",
       iglesiaDir: "Callejón del Calvario 170, Antigua Guatemala",

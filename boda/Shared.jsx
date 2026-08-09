@@ -35,12 +35,12 @@ function SectionHead({ eyebrow, title, reverse }) {
 }
 
 /* ---- Datos del evento (zona horaria fija: Guatemala, UTC-6) ----
-   Ceremonia religiosa 2:00 pm GT = 20:00 UTC. Fin de fiesta ~12:00 am = 06:00 UTC (+1 día). */
+   Ceremonia religiosa 3:00 pm GT = 21:00 UTC. Fin de fiesta ~12:00 am = 06:00 UTC (+1 día). */
 const EVENT = {
   title: "Boda de Ximena & Diego",
-  details: "Acompáñanos a celebrar nuestra boda. Ceremonia religiosa en el Templo del Calvario (2:00 pm) y recepción en el Jardín Cortijo Mestizo.",
+  details: "¡Acompáñanos a celebrar nuestra boda! La ceremonia religiosa será en el Templo del Calvario (3:00 pm) y la recepción en el Jardín Mestizo Cortijo (5:00pm). Con cariño, Ximena y Diego.\n\nPlease join us to celebrate our wedding! The religious ceremony will be at Templo del Calvario (3:00 PM) and the reception at Jardín Mestizo Cortijo (5:00 PM). With love, Ximena and Diego.",
   location: "Templo del Calvario y Cortijo Mestizo, Guatemala",
-  startUTC: "20261121T200000Z",
+  startUTC: "20261121T210000Z",
   endUTC:   "20261122T060000Z",
 };
 
@@ -67,7 +67,7 @@ function downloadICS() {
     "DTSTART:" + EVENT.startUTC,
     "DTEND:" + EVENT.endUTC,
     "SUMMARY:" + EVENT.title,
-    "DESCRIPTION:" + EVENT.details.replace(/,/g, "\\,"),
+    "DESCRIPTION:" + EVENT.details.replace(/,/g, "\\,").replace(/\n/g, "\\n"),
     "LOCATION:" + EVENT.location.replace(/,/g, "\\,"),
     "END:VEVENT",
     "END:VCALENDAR",
