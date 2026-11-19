@@ -117,8 +117,10 @@
 .rec-page .copy-btn { flex: none; }
 
 /* Regalos con un poco más de presencia */
-.rec-regalos .regalos .bank-v { font-size: 18px; font-weight: 600; letter-spacing: 0.02em; }
-.rec-regalos .regalos .copy-btn { min-height: 40px; padding-left: 14px; padding-right: 14px; }
+.rec-regalos .regalos .bank-v { font-size: 16px; font-weight: 600; }
+.rec-regalos .regalos .bank-row { flex-wrap: nowrap; }
+.rec-regalos .regalos .bank-row > div:first-child { min-width: 0; flex: 1 1 auto; }
+.rec-regalos .regalos .copy-btn { min-height: 40px; padding-left: 8px; padding-right: 0; white-space: nowrap; }
 
 /* Idioma siempre visible en la barra superior */
 .rec-nav-right { display: inline-flex; align-items: center; gap: 6px; }
@@ -133,7 +135,11 @@
   .rec-page .rec-hero .cd-unit { flex: 1 1 0; min-width: 0; padding: 12px 4px; }
   .rec-page .rec-meta span:first-child { font-size: 19px !important; }
   .rec-page .wrap, .rec-page .wrap-narrow { padding-left: 20px; padding-right: 20px; }
-  .rec-page .regalo-card { padding: 22px 20px; }
+  .rec-page .regalo-card { padding: 22px 18px; }
+  .rec-page .regalo-card h3 { font-size: 19px; }
+  .rec-regalos .regalos .bank-k { font-size: 10.5px; letter-spacing: .08em; }
+  .rec-regalos .regalos .bank-v { font-size: 14.5px; }
+  .rec-regalos .regalos .copy-btn { font-size: 12.5px; }
   .rec-dress-card { padding: 24px 20px; }
 }
 @media (max-width: 520px) {
