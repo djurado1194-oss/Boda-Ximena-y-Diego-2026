@@ -1,0 +1,142 @@
+/* Ajustes propios del recordatorio (solo afectan a recordatorio.html) */
+
+.rec-page .rec-hero { min-height: auto; padding-bottom: 56px; }
+
+.rec-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--brand-strong, #4A4F3B);
+  color: var(--brand-strong, #4A4F3B);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Portada: foto en tarjeta con los nombres encima */
+.rec-cover {
+  position: relative;
+  width: min(380px, 100%);
+  aspect-ratio: 4 / 5;
+  margin: 0 auto 22px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md, 0 8px 24px rgba(40, 40, 28, 0.18));
+}
+.rec-cover-photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.rec-cover::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(28, 28, 20, 0) 45%, rgba(28, 28, 20, 0.72) 100%);
+}
+.rec-page .rec-cover-names {
+  position: absolute; left: 0; right: 0; bottom: 18px;
+  z-index: 1;
+  padding: 0 16px;
+  font-size: clamp(2.8rem, 13vw, 4.2rem);
+  color: #F8F6F0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+.rec-page .rec-cover-names .amp { color: #E6E9DA; }
+.rec-meta { margin-top: 0; }
+
+.rec-cal {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.rec-cal-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-strong, #4A4F3B);
+}
+.rec-cal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Ubicaciones: botones grandes y fáciles de tocar */
+.rec-page .detail-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.rec-page .detail-actions .btn { justify-content: center; min-height: 52px; font-size: 16px; }
+
+/* Waze principal (verde), Google Maps secundario — solo cambia el color */
+.rec-page .detail-actions .btn-primary {
+  background: transparent; color: var(--brand-strong);
+  border-color: var(--line-strong); box-shadow: none;
+}
+.rec-page .detail-actions .btn-primary:hover { background: var(--eb-sage-tint); border-color: transparent; box-shadow: none; }
+.rec-page .detail-actions .btn-ghost {
+  background: var(--brand); color: var(--fg-on-dark);
+  border-color: transparent; box-shadow: var(--shadow-sm);
+}
+.rec-page .detail-actions .btn-ghost:hover { background: var(--brand-strong); box-shadow: var(--shadow-md); }
+
+/* Vestimenta corta — tarjeta clara sobre la sección oscura, texto oscuro */
+.rec-dress-card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 640px;
+  margin: var(--space-6, 32px) auto 0;
+  background: #F8F6F0;
+  color: #28281C;
+  border-radius: 20px;
+  padding: 28px 24px;
+}
+.rec-dress-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(74, 79, 59, 0.2);
+}
+.rec-page .rec-dress-k { margin: 0 0 4px; font-size: 20px; color: #4A4F3B; }
+.rec-page .rec-dress-v { margin: 0; font-size: 15.5px; color: #28281C; }
+.rec-dress-notes { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 12px; }
+.rec-dress-notes li { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; line-height: 1.5; color: #28281C; text-align: left; }
+.rec-dress-notes li > span:first-child { color: #4A4F3B; margin-top: 2px; flex: none; }
+
+/* Márgenes laterales parejos en todas las secciones */
+.rec-page .wrap, .rec-page .wrap-narrow { box-sizing: border-box; width: 100%; }
+.rec-page .regalo-card, .rec-page .detail-card, .rec-page .faq-list { box-sizing: border-box; max-width: 100%; }
+.rec-page .bank-row > div { min-width: 0; }
+.rec-page .bank-v { overflow-wrap: anywhere; }
+.rec-page .copy-btn { flex: none; }
+
+/* Regalos con un poco más de presencia */
+.rec-regalos .regalos .bank-v { font-size: 18px; font-weight: 600; letter-spacing: 0.02em; }
+.rec-regalos .regalos .copy-btn { min-height: 40px; padding-left: 14px; padding-right: 14px; }
+
+/* Idioma siempre visible en la barra superior */
+.rec-nav-right { display: inline-flex; align-items: center; gap: 6px; }
+.rec-page .lang-switch.rec-lang { display: inline-flex; padding: 8px 14px; font-size: 13px; }
+
+/* Cuenta regresiva dentro de los márgenes */
+.rec-page .rec-hero .countdown { width: 100%; max-width: 380px; justify-content: center; }
+
+@media (max-width: 600px) {
+  .rec-page .rec-hero .hero-inner-light { padding-left: 20px; padding-right: 20px; box-sizing: border-box; width: 100%; }
+  .rec-page .rec-hero .countdown { gap: 8px; }
+  .rec-page .rec-hero .cd-unit { flex: 1 1 0; min-width: 0; padding: 12px 4px; }
+  .rec-page .rec-meta span:first-child { font-size: 19px !important; }
+  .rec-page .wrap, .rec-page .wrap-narrow { padding-left: 20px; padding-right: 20px; }
+  .rec-page .regalo-card { padding: 22px 20px; }
+  .rec-dress-card { padding: 24px 20px; }
+}
+@media (max-width: 520px) {
+  .rec-page .detail-actions { grid-template-columns: 1fr; }
+  .rec-dress-row { grid-template-columns: 1fr; }
+}

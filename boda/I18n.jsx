@@ -97,7 +97,7 @@ const DICT = {
       items: [
         ["¿Los niños están invitados?", "No, hemos decidido que nuestra boda sea solo para **adultos**."],
         ["¿Podemos llevar a alguien que no está en la invitación?", "No, la invitación es exclusiva para las personas previamente contactadas."],
-        ["¿Con cuánta anticipación debemos llegar a la ceremonia?", "Te sugerimos llegar al menos 20–30 minutos antes de la ceremonia (2:00 pm) para encontrar estacionamiento."],
+        ["¿Con cuánta anticipación debemos llegar a la ceremonia?", "Te sugerimos llegar al menos 20–30 minutos antes de la ceremonia (3:00 pm) para encontrar estacionamiento."],
         ["¿Dónde podemos estacionarnos?", "Para la ceremonia religiosa, puedes estacionarte en la vía pública frente a la iglesia o en los parqueos públicos cercanos. Para la recepción, el Hotel Mestizo Cortijo ofrece parqueo gratuito dentro del venue."],
         ["¿Podemos llevar mascotas?", "Por el tipo de evento, no será posible llevar mascotas ni a la ceremonia ni a la recepción. Gracias por su comprensión."],
         ["¿Cómo podemos contactarlos si tenemos dudas?", "Puedes escribirnos directamente por WhatsApp o dejarnos tu duda en el mensaje del formulario de confirmación y te responderemos con gusto."],
@@ -217,7 +217,7 @@ const DICT = {
       items: [
         ["Are kids invited?", "No, we've decided our wedding will be **adults-only**."],
         ["Can we bring someone not on the invitation?", "No, the invitation is exclusive to the people previously contacted."],
-        ["How early should we arrive?", "We suggest arriving at least 20–30 minutes before the ceremony (2:00 pm) to find parking."],
+        ["How early should we arrive?", "We suggest arriving at least 20–30 minutes before the ceremony (3:00 pm) to find parking."],
         ["Where can we park?", "For the religious ceremony, you can park on the public street in front of the church or in nearby public parking lots. For the reception, Hotel Mestizo Cortijo offers free on-site parking."],
         ["Can we bring pets?", "Due to the nature of the event, pets won't be allowed at either the ceremony or the reception. Thank you for understanding."],
         ["How can we reach you with questions?", "You can message us directly on WhatsApp or leave your question in the RSVP form's message field, and we'll get back to you gladly."],
